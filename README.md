@@ -41,6 +41,7 @@ Hey, Netology
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
+**Ответ:**
 ![2](https://github.com/joos-net/virt-dc/blob/main/2.png)
 
 ## Задача 3
@@ -58,7 +59,9 @@ Hey, Netology
 6. Установите любимый текстовый редактор(vim, nano итд) с помощью apt-get.
 7. Отредактируйте файл "/etc/nginx/conf.d/default.conf", заменив порт "listen 80" на "listen 81".
 8. Запомните(!) и выполните команду ```nginx -s reload```, а затем внутри контейнера ```curl http://127.0.0.1:80 ; curl http://127.0.0.1:81```.
+
 ![33](https://github.com/joos-net/virt-dc/blob/main/33.png)
+
 9. Выйдите из контейнера, набрав в консоли  ```exit``` или Ctrl-D.
 10. Проверьте вывод команд: ```ss -tlpn | grep 127.0.0.1:8080``` , ```docker port custom-nginx-t2```, ```curl http://127.0.0.1:8080```. Кратко объясните суть возникшей проблемы.
 
@@ -67,11 +70,12 @@ Hey, Netology
 ![34](https://github.com/joos-net/virt-dc/blob/main/34.png)
 
 11. * Это дополнительное, необязательное задание. Попробуйте самостоятельно исправить конфигурацию контейнера, используя доступные источники в интернете. Не изменяйте конфигурацию nginx и не удаляйте контейнер. Останавливать контейнер можно. [пример источника](https://www.baeldung.com/linux/assign-port-docker-container)
-![35](https://github.com/joos-net/virt-dc/blob/main/35.png)
-12. Удалите запущенный контейнер "custom-nginx-t2", не останавливая его.(воспользуйтесь --help или google)
-![36](https://github.com/joos-net/virt-dc/blob/main/36.png)
 
-В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
+![35](https://github.com/joos-net/virt-dc/blob/main/35.png)
+
+12. Удалите запущенный контейнер "custom-nginx-t2", не останавливая его.(воспользуйтесь --help или google)
+
+![36](https://github.com/joos-net/virt-dc/blob/main/36.png)
 
 ## Задача 4
 - Запустите первый контейнер из образа ***centos*** c любым тегом в фоновом режиме, подключив папку  текущий рабочий каталог ```$(pwd)``` на хостовой машине в ```/data``` контейнера.
@@ -82,6 +86,7 @@ Hey, Netology
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
+**Ответ:**
 ![41](https://github.com/joos-net/virt-dc/blob/main/41.png)
 
 ## Задача 5
@@ -112,9 +117,22 @@ services:
 
 И выполните команду "docker compose up -d". Какой из файлов был запущен и почему? (подсказка: https://docs.docker.com/compose/compose-file/03-compose-file/)
 
-2. Отредактируйте файл compose.yaml так, чтобы были запущенны оба файла. (подсказка: https://docs.docker.com/compose/compose-file/14-include/)
+**Ответ:**
+Как сказано в документации предпочтительнее compose.yml, docker-compose.yml - совместимость со старыми версиями.
+```
+The default path for a Compose file is compose.yaml (preferred) or compose.yml that is placed in the working directory. Compose also supports docker-compose.yaml and docker-compose.yml for backwards compatibility of earlier versions. If both files exist, Compose prefers the canonical compose.yaml.
+```
 
+2. Отредактируйте файл compose.yaml так, чтобы были запущенны оба файла. (подсказка: https://docs.docker.com/compose/compose-file/14-include/)
+```
+include:
+  - docker-compose.yaml
+```
 3. Выполните в консоли вашей хостовой ОС необходимые команды чтобы залить образ custom-nginx как custom-nginx:latest в запущенное вами, локальное registry. Дополнительная документация: https://distribution.github.io/distribution/about/deploying/
+```
+docker tag jooos/custom-nginx:1.0.0 localhost:5000/custom-nginx 
+docker push localhost:5000/custom-nginx
+```
 4. Откройте страницу "https://127.0.0.1:9000" и произведите начальную настройку portainer.(логин и пароль адмнистратора)
 5. Откройте страницу "http://127.0.0.1:9000/#!/home", выберите ваше local  окружение. Перейдите на вкладку "stacks" и в "web editor" задеплойте следующий компоуз:
 
