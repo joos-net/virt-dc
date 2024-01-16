@@ -159,6 +159,20 @@ services:
 ![dockupd](https://github.com/joos-net/virt-dc/blob/main/dockupd.png)
 
 ![dockdown](https://github.com/joos-net/virt-dc/blob/main/dockdown.png)
+
+compose.yaml
+```yml
+version: "3"
+include: 
+  - docker-compose.yaml
+services:
+  portainer:
+    image: portainer/portainer:latest
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+```
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод, файл compose.yaml , скриншот portainer c задеплоенным компоузом.
 
 ---
