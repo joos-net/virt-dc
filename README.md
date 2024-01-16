@@ -87,7 +87,7 @@ Hey, Netology
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
 **Ответ:**
-![41](https://github.com/joos-net/virt-dc/blob/main/41.png)
+![volume](https://github.com/joos-net/virt-dc/blob/main/volume.png)
 
 ## Задача 5
 
@@ -133,9 +133,11 @@ include:
 docker tag jooos/custom-nginx:1.0.0 localhost:5000/custom-nginx 
 docker push localhost:5000/custom-nginx
 ```
+
+![dockpush](https://github.com/joos-net/virt-dc/blob/main/dockpush.png)
+
 4. Откройте страницу "https://127.0.0.1:9000" и произведите начальную настройку portainer.(логин и пароль адмнистратора)
 5. Откройте страницу "http://127.0.0.1:9000/#!/home", выберите ваше local  окружение. Перейдите на вкладку "stacks" и в "web editor" задеплойте следующий компоуз:
-
 ```
 version: '3'
 
@@ -145,10 +147,18 @@ services:
     ports:
       - "9090:80"
 ```
+
+![port1](https://github.com/joos-net/virt-dc/blob/main/port1.png)
+
 6. Перейдите на страницу "http://127.0.0.1:9000/#!/2/docker/containers", выберите контейнер с nginx и нажмите на кнопку "inspect". В представлении <> Tree разверните поле "Config" и сделайте скриншот от поля "AppArmorProfile" до "Driver".
+
+![port](https://github.com/joos-net/virt-dc/blob/main/port.png)
 
 7. Удалите любой из манифестов компоуза(например compose.yaml).  Выполните команду "docker compose up -d". Прочитайте warning, объясните суть предупреждения и выполните предложенное действие. Погасите compose-проект ОДНОЙ(обязательно!!) командой.
 
+![dockupd](https://github.com/joos-net/virt-dc/blob/main/dockupd.png)
+
+![dockdown](https://github.com/joos-net/virt-dc/blob/main/dockdown.png)
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод, файл compose.yaml , скриншот portainer c задеплоенным компоузом.
 
 ---
