@@ -156,6 +156,8 @@ services:
 
 7. Удалите любой из манифестов компоуза(например compose.yaml).  Выполните команду "docker compose up -d". Прочитайте warning, объясните суть предупреждения и выполните предложенное действие. Погасите compose-проект ОДНОЙ(обязательно!!) командой.
 
+**Ответ:** Докер перечитал манифест, нашел контейнер который не принадлежит манифесту и предлагает удалить его. (docker compose config)
+
 ![dockupd](https://github.com/joos-net/virt-dc/blob/main/dockupd.png)
 
 ![dockdown](https://github.com/joos-net/virt-dc/blob/main/dockdown.png)
