@@ -42,17 +42,18 @@ Hey, Netology
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
 **Ответ:**
-![2](https://github.com/joos-net/virt-dc/blob/main/2.png)
+![21](https://github.com/joos-net/virt-dc/blob/main/cn-1.png)
+![23](https://github.com/joos-net/virt-dc/blob/main/cn-2.png)
 
 ## Задача 3
 1. Воспользуйтесь docker help или google, чтобы узнать как подключиться к стандартному потоку ввода/вывода/ошибок контейнера "custom-nginx-t2".
 2. Подключитесь к контейнеру и нажмите комбинацию Ctrl-C.
-![31](https://github.com/joos-net/virt-dc/blob/main/31.png)
 3. Выполните ```docker ps -a``` и объясните своими словами почему контейнер остановился.
 
-Коммандой attach мы поключились к главному процессу и командой Ctrl-C завершили его. При завершении главного процесса контейнер остановился.
+**Ответ:** Коммандой attach мы поключились к главному процессу и командой Ctrl-C завершили его. При завершении главного процесса контейнер остановился.
 
-![32](https://github.com/joos-net/virt-dc/blob/main/32.png)
+![31](https://github.com/joos-net/virt-dc/blob/main/cn31.png)
+![32](https://github.com/joos-net/virt-dc/blob/main/cn32.png)
 
 4. Перезапустите контейнер
 5. Зайдите в интерактивный терминал контейнера "custom-nginx-t2" с оболочкой bash.
@@ -60,14 +61,15 @@ Hey, Netology
 7. Отредактируйте файл "/etc/nginx/conf.d/default.conf", заменив порт "listen 80" на "listen 81".
 8. Запомните(!) и выполните команду ```nginx -s reload```, а затем внутри контейнера ```curl http://127.0.0.1:80 ; curl http://127.0.0.1:81```.
 
-![33](https://github.com/joos-net/virt-dc/blob/main/33.png)
+![33](https://github.com/joos-net/virt-dc/blob/main/cn33.png)
 
 9. Выйдите из контейнера, набрав в консоли  ```exit``` или Ctrl-D.
 10. Проверьте вывод команд: ```ss -tlpn | grep 127.0.0.1:8080``` , ```docker port custom-nginx-t2```, ```curl http://127.0.0.1:8080```. Кратко объясните суть возникшей проблемы.
 
 Изменив настройки nginx мы теперь слушаем порт 81 в контейнере, а пытаемся подключится по 80 порту - там соединение сбрасывается.
 
-![34](https://github.com/joos-net/virt-dc/blob/main/34.png)
+![34](https://github.com/joos-net/virt-dc/blob/main/cn34.png)
+![35](https://github.com/joos-net/virt-dc/blob/main/cn35.png)
 
 11. * Это дополнительное, необязательное задание. Попробуйте самостоятельно исправить конфигурацию контейнера, используя доступные источники в интернете. Не изменяйте конфигурацию nginx и не удаляйте контейнер. Останавливать контейнер можно. [пример источника](https://www.baeldung.com/linux/assign-port-docker-container)
 
@@ -75,7 +77,7 @@ Hey, Netology
 
 12. Удалите запущенный контейнер "custom-nginx-t2", не останавливая его.(воспользуйтесь --help или google)
 
-![36](https://github.com/joos-net/virt-dc/blob/main/36.png)
+![36](https://github.com/joos-net/virt-dc/blob/main/cn36.png)
 
 ## Задача 4
 - Запустите первый контейнер из образа ***centos*** c любым тегом в фоновом режиме, подключив папку  текущий рабочий каталог ```$(pwd)``` на хостовой машине в ```/data``` контейнера.
